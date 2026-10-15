@@ -12,9 +12,13 @@ jobs:
   build-ipa:
     runs-on: macos-latest
     steps:
-      - name: Checkout source
+      # TODO: set SOURCE_REPO to the LibreScore Flutter app source once access is available,
+      # e.g. via the repo's Actions variables. Until then this checks out this repo (no app source).
+      - name: Checkout app source
         uses: actions/checkout@v4
         with:
+          # repository: <SOURCE_REPO>
+          # token: ${{ secrets.SOURCE_ACCESS_TOKEN }}
           submodules: recursive
 
       - name: Install Flutter
